@@ -7,9 +7,9 @@ const donationSchema = new mongoose.Schema(
     lastName: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
-    address: { type: String, required: true },
-    address2: { type: String, required: true },
-    pan: { type: String, required: true },
+    address: { type: String },
+    address2: { type: String },
+    pan: { type: String },
     donationAmount: { type: Number, required: true },
     purpose: { type: String, required: true },
     upload: { type: String }, // Store the file name or URL (depending on your use case)
