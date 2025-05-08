@@ -65,7 +65,7 @@ const initiatePayment = async (req, res) => {
         paymentStatus: 'PENDING',
       });
 
-      // console.log('Donation saved:');
+      console.log('Donation saved:');
 
       const data = {
         merchantId: process.env.MERCHANT_ID,
@@ -87,9 +87,9 @@ const initiatePayment = async (req, res) => {
       const sha256 = crypto.createHash('sha256').update(string).digest('hex');
       const checksum = sha256 + '###' + 1;
 
-      // console.log('Phonepe Host', process.env.PHONEPE_HOST_URL);
-      // console.log('merchantId', process.env.MERCHANT_ID);
-      // console.log('merchantTransactionId', merchantTransactionId);
+      console.log('Phonepe Host', process.env.PHONEPE_HOST_URL);
+      console.log('merchantId', process.env.MERCHANT_ID);
+      console.log('merchantTransactionId', merchantTransactionId);
 
       const options = {
         method: 'POST',
@@ -102,8 +102,8 @@ const initiatePayment = async (req, res) => {
         data: { request: payloadMain },
       };
 
-      // console.log('Request Options:', JSON.stringify(options, null, 2));
-      // console.log('CheckSum', checksum);
+      console.log('Request Options:', JSON.stringify(options, null, 2));
+      console.log('CheckSum', checksum);
       const response = await axios.request(options);
       if (response.data.success && response.data.code === 'PAYMENT_INITIATED') {
         return res.json({
